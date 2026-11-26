@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: ami-home
 title: 首页
 permalink: /
 subtitle: Applied Magnetics and Integration, AMI
