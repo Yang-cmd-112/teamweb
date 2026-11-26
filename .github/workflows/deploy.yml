@@ -88,8 +88,14 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
+            - name: Save website preview
+        if: github.ref == 'refs/heads/redesign-homepage'
+        uses: actions/upload-artifact@v4
+        with:
+      - name: website-preview
+          path: _site/
       - name: Deploy 🚀
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && github.ref != 'refs/heads/redesign-homepage'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: _site

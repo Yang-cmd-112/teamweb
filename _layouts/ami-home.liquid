@@ -1,0 +1,138 @@
+---
+layout: default
+---
+{% assign hero_image = page.profile.image | prepend: '/assets/img/' %}
+
+<div class="ami-home">
+  <header class="ami-hero">
+    <img class="ami-hero-image" src="{{ hero_image | relative_url }}" alt="">
+    <div class="ami-hero-content">
+      <p class="ami-affiliation">华中科技大学</p>
+      <h1>应用磁学与集成课题组</h1>
+      <p>{{ page.subtitle }}</p>
+      <nav class="ami-hero-links" aria-label="首页快捷入口">
+        <a href="{{ '/people/' | relative_url }}">科研团队</a>
+        <a href="{{ '/publications/' | relative_url }}">科研成果</a>
+      </nav>
+    </div>
+  </header>
+
+  {% if page.latest_posts and site.latest_posts.enabled %}
+    <section class="ami-section" aria-labelledby="ami-news-title">
+      <div class="ami-section-heading">
+        <h2 id="ami-news-title">科研动态</h2>
+        <a href="{{ '/blog/' | relative_url }}">查看全部动态 →</a>
+      </div>
+      {% include latest_posts.liquid %}
+    </section>
+  {% endif %}
+
+  {% if page.selected_papers %}
+    <section class="ami-section" aria-labelledby="ami-papers-title">
+      <div class="ami-section-heading">
+        <h2 id="ami-papers-title">代表性成果</h2>
+        <a href="{{ '/publications/' | relative_url }}">查看全部成果 →</a>
+      </div>
+      {% include selected_papers.liquid %}
+    </section>
+  {% endif %}
+
+  <section class="ami-section" aria-labelledby="ami-about-title">
+    <h2 id="ami-about-title">课题组负责人</h2>
+    {{ content }}
+  </section>
+
+  {% if page.profile.more_info %}
+    <section class="ami-section" aria-labelledby="ami-contact-title">
+      <h2 id="ami-contact-title">联系我们</h2>
+      {{ page.profile.more_info }}
+    </section>
+  {% endif %}
+</div>
+
+<style>
+  .ami-home .ami-hero {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    align-items: end;
+    min-height: clamp(23rem, 48vw, 35rem);
+    overflow: hidden;
+    border-radius: 1rem;
+    background: #10283c;
+    color: #fff;
+  }
+
+  .ami-home .ami-hero-image,
+  .ami-home .ami-hero::after {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ami-home .ami-hero-image {
+    z-index: -2;
+    object-fit: cover;
+  }
+
+  .ami-home .ami-hero::after {
+    z-index: -1;
+    content: "";
+    background: linear-gradient(0deg, rgba(8, 24, 40, .96), rgba(8, 24, 40, .24));
+  }
+
+  .ami-home .ami-hero-content {
+    padding: clamp(1.5rem, 5vw, 3.5rem);
+  }
+
+  .ami-home .ami-hero h1 {
+    margin: 0 0 .5rem;
+    color: inherit;
+    font-size: clamp(1.8rem, 4.8vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .ami-home .ami-affiliation {
+    margin-bottom: .75rem;
+    letter-spacing: .12em;
+  }
+
+  .ami-home .ami-hero-links,
+  .ami-home .ami-section-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .75rem 1rem;
+  }
+
+  .ami-home .ami-hero-links a {
+    padding: .55rem 1rem;
+    border: 1px solid #fff;
+    border-radius: .4rem;
+    color: #fff;
+  }
+
+  .ami-home .ami-hero-links a:hover,
+  .ami-home .ami-hero-links a:focus-visible {
+    background: #fff;
+    color: #10283c;
+  }
+
+  .ami-home .ami-section {
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--global-divider-color, #d5dde5);
+  }
+
+  .ami-home .ami-section-heading {
+    justify-content: space-between;
+    margin-bottom: .75rem;
+  }
+
+  .ami-home .ami-section h2 {
+    font-size: 1.5rem;
+    font-weight: 650;
+  }
+</style>
