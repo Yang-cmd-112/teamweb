@@ -1,0 +1,105 @@
+body.ami-site {
+  --ami-accent: #226a75;
+  --ami-line: var(--global-divider-color, #d9e3e7);
+  --ami-panel: var(--global-card-bg-color, #fff);
+}
+html[data-theme="dark"] body.ami-site {
+  --ami-accent: #86cbd1;
+}
+.ami-site main { min-width: 0; }
+.ami-home .ami-hero {
+  background: #10283c;
+  color: #fff;
+  border-radius: 12px;
+}
+.ami-home .ami-hero-content { padding: clamp(1.5rem, 5vw, 3rem); }
+.ami-home .ami-hero h1 {
+  color: inherit;
+  font-size: clamp(1.85rem, 4.6vw, 3.2rem);
+  line-height: 1.18;
+  font-weight: 700;
+}
+.ami-home .ami-affiliation { margin-bottom: .6rem; color: #c0e4e8; }
+.ami-home .ami-hero p { color: inherit; }
+.ami-home .ami-hero-links,
+.ami-home .ami-section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .65rem 1rem;
+}
+.ami-home .ami-hero-links a {
+  color: #fff;
+  border: 1px solid #92b6c4;
+  border-radius: 5px;
+  padding: .45rem .8rem;
+}
+.ami-home .ami-hero-links a:is(:hover, :focus-visible) {
+  color: #10283c;
+  background: #fff;
+}
+.ami-home .ami-home-photo { margin: 1rem 0 0; }
+.ami-home .ami-hero-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2.35;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.ami-home .ami-section {
+  margin-top: clamp(2rem, 4vw, 3.2rem);
+  padding-top: 1rem;
+  border-top: 1px solid var(--ami-line);
+}
+.ami-home .ami-section-heading { justify-content: space-between; }
+.ami-site .ami-section h2,
+.ami-site .lab-section-title { font-weight: 650; }
+.ami-site:not(.ami-index) .post-header,
+.ami-site:not(.ami-index) .header-bar {
+  text-align: left;
+  padding: .5rem 0 1rem 1.1rem;
+  margin-bottom: 1.75rem;
+  border: 0;
+  border-left: 4px solid var(--ami-accent);
+}
+.ami-site:not(.ami-index) .post-header h1,
+.ami-site:not(.ami-index) .header-bar h1 {
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 700;
+}
+.ami-site .lab-members-page .lab-card {
+  border: 1px solid var(--ami-line);
+  border-radius: 10px;
+  background: var(--ami-panel);
+  box-shadow: none;
+}
+.ami-site .lab-members-page a.lab-card:is(:hover, :focus-visible) {
+  border-color: var(--ami-accent);
+}
+.ami-site .lab-members-page .lab-section-title { border-color: var(--ami-accent); }
+.ami-site .post-list > li {
+  list-style: none;
+  border: 1px solid var(--ami-line);
+  border-radius: 10px;
+  background: var(--ami-panel);
+  padding: 1rem;
+  margin: 0 0 .9rem;
+}
+.ami-site .post-list { padding-left: 0; }
+.ami-site .post-list .post-title { font-weight: 650; }
+.ami-site .post-list .card-img { object-fit: cover; }
+.ami-site .publications h2.bibliography {
+  text-align: left;
+  padding: .35rem .8rem;
+  border: 0;
+  border-left: 3px solid var(--ami-accent);
+  color: var(--ami-accent);
+}
+.ami-site .publications ol.bibliography > li {
+  border-bottom: 1px solid var(--ami-line);
+  padding-bottom: 1rem;
+}
+@media (max-width: 575px) {
+  .ami-home .ami-hero-image { aspect-ratio: 1.55; }
+  .ami-site .post-list .card-img { margin-top: .6rem; }
+}
